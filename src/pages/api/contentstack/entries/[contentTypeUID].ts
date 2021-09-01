@@ -10,7 +10,7 @@ const entriesHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const response = await getResponseContentStackCDN(urlPath)
 
     // res.status(200).json(response.data.entries)
-    res.status(200).json([])
+    res.status(200)
   } catch (err) {
     res.status(500).json({ error: 'Something is not working' })
   }
