@@ -8,6 +8,7 @@ const entriesHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const urlPath = `content_types/${contentTypeUID}/entries`
     const response = await getResponseContentStackCDN(urlPath)
+    console.log(response.data.entries)
     res.status(200).json(response.data.entries)
   } catch (err) {
     res.status(500).json({ error: 'Something is not working' })
