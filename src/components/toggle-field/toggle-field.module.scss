@@ -1,0 +1,36 @@
+.toggleField {
+  position: relative;
+  display: inline-block;
+  font-weight: lighter;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 10px;
+  border-bottom: dotted 1px rgba(0, 0, 0, 0.3);
+
+  ul {
+    display: none;
+    position: absolute;
+    min-width: 300px;
+    list-style: none;
+    margin: auto;
+    background: #99d3cf;
+    padding: 10px 15px;
+    color: #196e69;
+    left: 0;
+    box-shadow: 1px 1px 1px #196e69;
+    &.show {
+      display: block;
+      z-index: 1;
+    }
+
+    li {
+      text-align: left;
+      margin-bottom: 10px;
+      &.selected {
+        text-decoration: underline;
+      }
+    }
+  }
+  & + .toggleField {
+    margin-left: 0;
+  }
+}

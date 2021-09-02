@@ -1,0 +1,39 @@
+[
+  {
+    "choices": [
+      "want help with",
+      "my crying baby so that",
+      "my 12 week old Charlie",
+      "is no longer crying"
+    ],
+    "solution": {
+      "url": "/have-you-tried/baby-crying/phase-1/take-a-deep-breath",
+      "download_app": false
+    }
+  },
+  {
+    "choices": [
+      "want to understand all there is to know about",
+      "night parenting",
+      "so that my family",
+      "is rested"
+    ],
+    "solution": {
+      "url": "/topics/night-parenting",
+      "download_app": false
+    }
+  },
+  {
+    "choices": [
+      "want guidance",
+      "for the next chaper for",
+      "my 12 week old Charlie",
+      "then he will be happy"
+    ],
+    "solution": {
+      "content_type": "",
+      "content_type_uid": "",
+      "download_app": true
+    }
+  }
+]
