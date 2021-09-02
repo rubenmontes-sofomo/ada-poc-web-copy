@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 
 const US_BASE_URL = 'https://cdn.contentstack.io/v3'
 const CONTENT_STACK_DYNAMIC_API = 'api/contentstack'
@@ -18,9 +18,21 @@ export const getResponseContentStackCDN = async (urlPath: string) => {
 export const fetcher = async (urlPath: string) => {
   const url = `${process.env.PUBLIC_URL}/${CONTENT_STACK_DYNAMIC_API}/${urlPath}`
   const response = await fetch(url)
-  const data = await response.json()
+  const responseJSON = await response.json()
 
-  return data
+  let data: any[] = []
+  let error = ''
+
+  if (Array.isArray(responseJSON)) {
+    data = responseJSON
+  } else {
+    error = responseJSON
+  }
+
+  return {
+    data,
+    error,
+  }
 }
 
 export const toSEOUrl = (str: string) => {

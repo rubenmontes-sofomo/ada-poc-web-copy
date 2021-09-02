@@ -11,7 +11,6 @@ const entryHandler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     res.status(200).json(response.data.entry)
   } catch (err) {
-    console.log(err)
     res.status(500).json({ error: 'Something is not working' })
   }
 }

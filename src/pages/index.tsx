@@ -6,20 +6,19 @@ import { fetcher } from '@/utils/index'
 import { HeroCMS } from '@/types'
 
 type HomeProps = {
-  heroEntries?: HeroCMS[]
+  data: any[]
+  error: any
 }
 
 export const getStaticProps = async () => {
-  const heroEntries = await fetcher('entries/hero')
+  const props: HomeProps = await fetcher('entries/hero')
 
   return {
-    props: {
-      heroEntries,
-    },
+    props,
   }
 }
 
-export default function Home({ heroEntries }: HomeProps) {
+export default function Home({ data, error }: HomeProps) {
   return (
     <div className={styles.container}>
       <Head>
@@ -31,9 +30,11 @@ export default function Home({ heroEntries }: HomeProps) {
       <main className={styles.main}>
         <h1 className={styles.title}>Ada POC Web</h1>
         <section>
-          {heroEntries && (
-            <ul>
-              {heroEntries.map((heroEntry: any, index: number) => (
+          <ul>
+            {error && <p>{error.message}</p>}
+            {data &&
+              data.length > 0 &&
+              data.map((heroEntry: any, index: number) => (
                 <li key={index}>
                   <Link
                     href={`/hello-mama/${heroEntry.uid}?utm_source=${heroEntry.utm_source}`}
@@ -42,8 +43,8 @@ export default function Home({ heroEntries }: HomeProps) {
                   </Link>
                 </li>
               ))}
-            </ul>
-          )}
+            {!error && data.length === 0 && <p>There is no entries to show</p>}
+          </ul>
         </section>
       </main>
     </div>

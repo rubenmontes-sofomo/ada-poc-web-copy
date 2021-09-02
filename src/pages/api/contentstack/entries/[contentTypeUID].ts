@@ -9,10 +9,14 @@ const entriesHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     const urlPath = `content_types/${contentTypeUID}/entries`
     const response = await getResponseContentStackCDN(urlPath)
 
-    // res.status(200).json(response.data.entries)
-    res.status(200)
-  } catch (err) {
-    res.status(500).json({ error: 'Something is not working' })
+    if (response.status !== 200) {
+      throw new String(
+        'There has been an error trying to fetch entires. Please try again later.'
+      )
+    }
+    res.status(200).send(response.data.entries)
+  } catch (errorMessage) {
+    res.status(500).send({ message: errorMessage })
   }
 }
 
