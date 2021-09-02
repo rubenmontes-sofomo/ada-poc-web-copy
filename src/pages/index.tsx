@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import styles from '@/styles/home.module.scss'
 import { fetcher } from '@/utils/index'
-import { HeroCMS } from '@/types'
 
 type HomeProps = {
   data: any[]
