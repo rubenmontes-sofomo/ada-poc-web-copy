@@ -1,0 +1,38 @@
+.main {
+  padding: 20px;
+}
+.currentPhase,
+.didYourBest {
+  margin-bottom: 50px;
+}
+.steps {
+  list-style-type: none;
+  margin: 20px 0 0 0;
+  padding: 10px 20px;
+  .step {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    &:empty {
+      display: none;
+    }
+    &:not(:last-of-type) {
+      border-bottom: solid 1px #ccc;
+    }
+    &.tried {
+      color: rgba(0, 0, 0, 0.5);
+      &:after {
+        position: absolute;
+        right: 0;
+        content: '✔';
+      }
+    }
+    &.current {
+      font-weight: bold;
+    }
+  }
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+}

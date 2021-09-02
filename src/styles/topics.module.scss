@@ -1,0 +1,23 @@
+.main {
+  padding: 20px;
+}
+.topics {
+  list-style-type: none;
+  margin: 50px 0 0;
+  padding: 0;
+}
+.topic {
+  text-align: center;
+  margin: 20px auto;
+  width: 300px;
+  border: solid 1px #ccc;
+  padding: 30px 20px;
+  color: #196e69;
+  font-size: 20px;
+  font-weight: light;
+  &:hover {
+    border-color: #444;
+    transition: border-color 0.2s;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,23 @@
+.heading {
+  position: absolute;
+  right: 20px;
+  z-index: 1;
+  width: 140px;
+  font-size: 23px;
+  color: #99d3cf;
+  font-weight: normal;
+  text-align: right;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  margin: 10px 10px 0 0;
+  min-width: 200px;
+  justify-content: center;
+}

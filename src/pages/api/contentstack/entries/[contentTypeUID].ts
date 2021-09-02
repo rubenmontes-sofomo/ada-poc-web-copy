@@ -15,8 +15,8 @@ const entriesHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       )
     }
     res.status(200).send(response.data.entries)
-  } catch (errorMessage) {
-    res.status(500).send({ message: errorMessage })
+  } catch (error) {
+    res.status(500).send({ message: error })
   }
 }
 

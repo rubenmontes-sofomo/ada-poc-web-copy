@@ -16,17 +16,19 @@ export const getResponseContentStackCDN = async (urlPath: string) => {
 }
 
 export const fetcher = async (urlPath: string) => {
-  const url = `${process.env.PUBLIC_URL}/${CONTENT_STACK_DYNAMIC_API}/${urlPath}`
-  const response = await fetch(url)
-  const responseJSON = await response.json()
-
-  let data: any[] = []
+  let data
   let error = ''
 
-  if (Array.isArray(responseJSON)) {
-    data = responseJSON
-  } else {
-    error = responseJSON
+  try {
+    const url = `${process.env.PUBLIC_URL}/${CONTENT_STACK_DYNAMIC_API}/${urlPath}`
+    const response = await fetch(url)
+
+    if (response.status !== 200) {
+      throw new String('Something went wrong')
+    }
+    data = await response.json()
+  } catch (error) {
+    error = error
   }
 
   return {

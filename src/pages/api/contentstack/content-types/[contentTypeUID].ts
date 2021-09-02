@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getResponseContentStackCDN } from '@/utils/index'
+import { AxiosError } from 'axios'
 
 const contentTypeUIDHandler = async (
   req: NextApiRequest,
@@ -12,9 +13,12 @@ const contentTypeUIDHandler = async (
     const urlPath = `content_types/${contentTypeUID}`
     const response = await getResponseContentStackCDN(urlPath)
 
+    if (response.status !== 200) {
+      throw new String('Something went wrong')
+    }
     res.status(200).json(response.data.content_type)
-  } catch (err) {
-    res.status(500).json({ error: 'Something went wrong' })
+  } catch (error) {
+    res.status(500).json({ message: error ?? 'Something went wrong' })
   }
 }
 
