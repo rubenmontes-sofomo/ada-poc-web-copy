@@ -1,0 +1,45 @@
+@import '../../styles/_colors.scss';
+
+.inputWrapper {
+  position: relative;
+}
+.label {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  padding: 5px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $dark-green-secondary;
+  background-color: white;
+}
+.input {
+  box-sizing: border-box;
+  height: 53px;
+  border: solid 1px $grey-tint-2;
+  border-radius: 6px;
+  padding: 16px 32px 16px 16px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #a9a9ac;
+  &:active {
+    border-color: $dark-green-secondary;
+  }
+  &.withLabel {
+    color: $dark-green-secondary;
+  }
+  &.big {
+    height: 72px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  &.hasErrors {
+    border-color: $alert;
+    color: $grey-tint-2;
+  }
+}
+.error {
+  color: $alert;
+  margin-bottom: 10px;
+}
