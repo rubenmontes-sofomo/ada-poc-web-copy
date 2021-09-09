@@ -5,10 +5,10 @@ import styles from './Link.module.scss'
 export type LinkProps = {
   text: string
   href: string
-  overlay: boolean
+  overlay?: boolean
 }
 
-export default function LinkButton({ text, href, overlay }: LinkProps) {
+export default function LinkButton({ text, href, overlay = true }: LinkProps) {
   return (
     <Link href={href}>
       <a className={`${styles.link} ${overlay ? styles.overlay : ''}`}>

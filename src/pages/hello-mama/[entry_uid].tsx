@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { fetcher } from '@/utils/index'
-import { Layout } from '@/components/layout/layout'
+import { Layout } from '@/components/Layout/Layout'
 import styles from '@/styles/hello-mama.module.scss'
 import { HeroCMS } from '@/types'
 

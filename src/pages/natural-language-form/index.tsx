@@ -6,7 +6,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 
-import { Layout } from '@/components/layout/layout'
+import { Layout } from '@/components/Layout/Layout'
 import { ToggleField } from '@/components/toggle-field/toggle-field'
 import styles from '@/styles/natural-language-form.module.scss'
 

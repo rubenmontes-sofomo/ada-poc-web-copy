@@ -5,39 +5,21 @@ import { useRouter } from 'next/router'
 
 import styles from './layout.module.scss'
 
+type LayoutOptions = {
+  fullHeight?: boolean
+  showBackButton?: boolean
+  hideLogo?: boolean
+}
+
 type LayoutProps = {
   children: React.ReactNode
-  options?: { showBackButton?: boolean; hideLogo?: boolean }
+  backgroundColor?: 'default' | 'yellow' | 'green' | 'darkgreen'
+  options?: LayoutOptions
 }
-export const Layout = ({ children, options }: LayoutProps) => {
-  const router = useRouter()
-  return (
-    <div className={styles.container}>
-      {!options?.hideLogo && (
-        <div className={styles.logo}>
-          <Link href="/">
-            <a>
-              <Image
-                src="/images/willow-logo-green.png"
-                width={30}
-                height={46}
-                alt="Willow logo"
-              />
-            </a>
-          </Link>
-        </div>
-      )}
-      {options?.showBackButton && (
-        <div className={styles.goBack}>
-          <button
-            className="button small secondary"
-            onClick={() => router.back()}
-          >
-            Go Back
-          </button>
-        </div>
-      )}
-      {children}
-    </div>
-  )
+export const Layout = ({
+  children,
+  backgroundColor = 'default',
+  options,
+}: LayoutProps) => {
+  return <div style={{ backgroundColor }}>{children}</div>
 }

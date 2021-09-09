@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { Layout } from '@/components/layout/layout'
+import { Layout } from '@/components/Layout/Layout'
 import styles from '@/styles/have-you-tried.module.scss'
 import { fetcher, toSEOUrl } from '@/utils/index'
 import {
