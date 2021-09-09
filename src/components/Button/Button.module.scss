@@ -1,0 +1,48 @@
+@import '../../styles//colors';
+
+.button {
+  display: flex;
+  align-items: center;
+  background-color: $teal-primary;
+  color: white;
+  border-radius: 100px;
+  padding: 22px 32px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: uppercase;
+  border: solid 1px white;
+  .icon {
+    display: flex;
+    & + .text {
+      margin-left: 20px;
+    }
+  }
+  &.small {
+    font-size: 10px;
+    padding: 16px 32px;
+  }
+  &.big {
+    padding: 22px 51px;
+  }
+  &.disabled {
+    background-color: $grey-tint-3;
+    border-color: $grey-tint-3;
+    color: $grey-primary;
+  }
+  &.secondary {
+    background-color: $teal-tint-3;
+    color: $teal-primary;
+    border-color: $teal-primary;
+  }
+  &.overlayPrimary {
+    background-color: transparent;
+    border-color: $teal-primary;
+    color: $teal-primary;
+  }
+  &.overlaySecondary {
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+}

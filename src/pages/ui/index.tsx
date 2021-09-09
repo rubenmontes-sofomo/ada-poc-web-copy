@@ -1,18 +1,18 @@
 import React from 'react'
 
-import ListItem from '@/components/ListItem/ListItem'
+import Button from '@/components/Button/Button'
 
 export default function UI() {
   return (
-    <>
-      <ListItem
-        items={[
-          {
-            title: 'List Item 1',
-            description: 'This is a one line description of the title.',
-          },
-        ]}
-      />
-    </>
+    <Button
+      text="Basic Button Primary"
+      icon={{
+        src: '/icons/bookmark-white.png',
+        width: 17,
+        height: 24,
+        alt: 'Bookmark',
+      }}
+      overlaySecondary={true}
+    />
   )
 }
