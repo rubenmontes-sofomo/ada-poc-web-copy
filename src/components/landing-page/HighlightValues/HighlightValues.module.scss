@@ -1,0 +1,26 @@
+@import '../../../styles/colors';
+
+.highlightValues {
+  padding: 75px 24px;
+  .value {
+    margin: 20px 0 40px;
+    .thumbnail {
+      width: 320px;
+      height: 180px;
+      background-color: $teal;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 20px;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  .button {
+    display: flex;
+    width: 100%;
+  }
+}

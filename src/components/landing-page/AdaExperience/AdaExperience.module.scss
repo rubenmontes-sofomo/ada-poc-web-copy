@@ -1,0 +1,74 @@
+@import '../../../styles/colors';
+
+.adaExperience {
+  background-color: $yellow;
+  padding: 75px 24px;
+  .experiencesWrapper {
+    position: relative;
+    overflow: hidden;
+    min-height: 650px;
+    .experiences {
+      position: absolute;
+      left: 0;
+      .experience {
+        position: absolute;
+        .description {
+          font-size: 16px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+  .bullets {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    .bullet {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: $grey-tint-2;
+      margin-right: 20px;
+      border-radius: 100px;
+      &.active {
+        background-color: $maroon;
+      }
+    }
+  }
+}
+
+hr.separator {
+  height: 1px;
+  border: 0;
+  border-top: solid 1px $teal-primary;
+  margin-bottom: 50px;
+}
+
+.topics {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 50px 0 0 0;
+  padding: 0;
+  .topic {
+    display: flex;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    .placeholder {
+      display: flex;
+      width: 36px;
+      height: 36px;
+      background-color: $grey-tint-4;
+      border-radius: 100px;
+    }
+    .topicName {
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+  }
+}
+.button {
+  margin-top: 30px;
+}
