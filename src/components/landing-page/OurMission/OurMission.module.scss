@@ -1,0 +1,46 @@
+@import '../../../styles/colors';
+
+.ourMission {
+  padding: 75px 24px 40px;
+  .placeholder {
+    width: 329px;
+    height: 185px;
+    background-color: $teal;
+    margin-bottom: 40px;
+  }
+  h3 {
+    margin-bottom: 40px;
+  }
+  hr.separator {
+    margin: 50px 0;
+  }
+  .expertsWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    .experts {
+      position: relative;
+      width: 254px;
+      height: 241px;
+      border: dotted 3px $teal-tint-3;
+      border-radius: 200px;
+      .expert {
+        position: absolute;
+      }
+    }
+  }
+  .expertName {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    text-align: center;
+  }
+  .expertDescription {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+  }
+  .button {
+    text-align: center;
+  }
+}

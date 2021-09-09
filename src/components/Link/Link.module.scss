@@ -1,12 +1,35 @@
 @import '../../styles/colors';
 
 .link {
+  display: flex;
+  flex-direction: row;
   padding: 22px 32px;
   font-size: 12px;
   line-height: 20px;
   text-transform: uppercase;
   text-align: center;
+  color: $teal-primary;
   &.overlay {
     color: $teal-tint-3;
+  }
+  &.withIcon {
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 12px;
+  }
+  .text {
+    display: flex;
+  }
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background-color: $teal;
+    margin-left: 10px;
   }
 }

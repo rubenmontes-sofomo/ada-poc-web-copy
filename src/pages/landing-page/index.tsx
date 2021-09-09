@@ -10,6 +10,9 @@ import LPAdaExperience, {
   Experience,
 } from '@/components/landing-page/AdaExperience/AdaExperience'
 import LPHelp from '@/components/landing-page/Help/Help'
+import LPOurMission, {
+  Expert,
+} from '@/components/landing-page/OurMission/OurMission'
 
 const values: Value[] = [
   {
@@ -66,6 +69,41 @@ const topics: string[] = [
   'Nutrition',
 ]
 
+const experts: Expert[] = [
+  {
+    avatar: {
+      src: '/images/expert1.png',
+      width: 50,
+      height: 50,
+      alt: 'Dr. George Russell',
+    },
+  },
+  {
+    avatar: {
+      src: '/images/expert2.png',
+      width: 50,
+      height: 50,
+      alt: 'Dr. Martha Stewart',
+    },
+  },
+  {
+    avatar: {
+      src: '/images/expert3.png',
+      width: 50,
+      height: 50,
+      alt: 'Dr. Martin Campbell',
+    },
+  },
+  {
+    avatar: {
+      src: '/images/expert4.png',
+      width: 50,
+      height: 50,
+      alt: 'Dr. Sarah Smith',
+    },
+  },
+]
+
 export default function LandingPage({}) {
   return (
     <Layout>
@@ -79,9 +117,8 @@ export default function LandingPage({}) {
         <LPHighlightValues values={values} />
         <LPAdaExperience experiences={experiences} topics={topics} />
         <LPHelp />
-        {/*<LPOurMission />
-      <LPExperts />
-      <LPCTAHeadline />
+        <LPOurMission experts={experts} />
+        {/*<LPCTAHeadline />
       <Footer /> */}
       </main>
     </Layout>
