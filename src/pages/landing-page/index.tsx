@@ -9,6 +9,7 @@ import LPHighlightValues, {
 import LPAdaExperience, {
   Experience,
 } from '@/components/landing-page/AdaExperience/AdaExperience'
+import LPHelp from '@/components/landing-page/Help/Help'
 
 const values: Value[] = [
   {
@@ -77,8 +78,8 @@ export default function LandingPage({}) {
         <LPIntroduction />
         <LPHighlightValues values={values} />
         <LPAdaExperience experiences={experiences} topics={topics} />
-        {/*<LPHelp />
-      <LPOurMission />
+        <LPHelp />
+        {/*<LPOurMission />
       <LPExperts />
       <LPCTAHeadline />
       <Footer /> */}
