@@ -18,7 +18,7 @@ export const Layout = ({ children, options }: LayoutProps) => {
           <Link href="/">
             <a>
               <Image
-                src="/images/willow_logo.png"
+                src="/images/willow-logo-green.png"
                 width={30}
                 height={46}
                 alt="Willow logo"
