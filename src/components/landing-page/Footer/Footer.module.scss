@@ -1,0 +1,19 @@
+@import '../../../styles/colors';
+
+.footer {
+  display: flex;
+  padding: 45px 24px 35px;
+  background-color: $darker-green;
+  color: white;
+  .logo {
+    display: flex;
+    flex: 2.5;
+  }
+  .copyright {
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    font-size: 10px;
+    line-height: 12px;
+  }
+}

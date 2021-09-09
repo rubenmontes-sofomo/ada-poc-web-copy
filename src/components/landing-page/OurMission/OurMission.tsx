@@ -11,7 +11,7 @@ export type Expert = {
     height: number
     alt: string
   }
-  position: { top: number; left: number }
+  position?: { top: number; left: number }
 }
 
 type OurMissionProps = {

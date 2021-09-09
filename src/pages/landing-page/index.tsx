@@ -13,6 +13,9 @@ import LPHelp from '@/components/landing-page/Help/Help'
 import LPOurMission, {
   Expert,
 } from '@/components/landing-page/OurMission/OurMission'
+import LPCTAButton from '@/components/landing-page/CTAButton/CTAButton'
+
+import LPFooter from '@/components/landing-page/Footer/Footer'
 
 const values: Value[] = [
   {
@@ -118,8 +121,8 @@ export default function LandingPage({}) {
         <LPAdaExperience experiences={experiences} topics={topics} />
         <LPHelp />
         <LPOurMission experts={experts} />
-        {/*<LPCTAHeadline />
-      <Footer /> */}
+        <LPCTAButton />
+        <LPFooter />
       </main>
     </Layout>
   )

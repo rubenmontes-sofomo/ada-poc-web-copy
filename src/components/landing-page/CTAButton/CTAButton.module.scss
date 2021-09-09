@@ -1,0 +1,16 @@
+@import '../../../styles/colors';
+
+.ctaButton {
+  background-color: $teal-primary;
+  color: white;
+  padding: 35px 24px 40px;
+  h3 {
+    color: white;
+    font-size: 31px;
+    line-height: 37px;
+    width: 80%;
+  }
+  .button {
+    margin-top: 50px;
+  }
+}
