@@ -1,0 +1,11 @@
+@import '../../styles/colors';
+
+.link {
+  padding: 22px 32px;
+  font-size: 12px;
+  line-height: 20px;
+  text-transform: uppercase;
+  &.overlay {
+    color: $teal-tint-3;
+  }
+}
