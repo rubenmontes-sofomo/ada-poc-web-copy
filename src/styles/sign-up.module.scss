@@ -1,0 +1,64 @@
+@import './colors';
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  background-color: $yellow-light;
+  padding: 100px 25px 30px 25px;
+  height: 100vh;
+  h1 {
+    margin-bottom: 50px;
+    font-weight: normal;
+    text-align: center;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .checkbox {
+      position: relative;
+      display: flex;
+      margin-top: 20px;
+      .check {
+      }
+      .text {
+        text-align: center;
+        line-height: 22px;
+      }
+    }
+    .tooltip {
+      visibility: hidden;
+      position: absolute;
+      top: 60px;
+      background-color: $rust;
+      color: white;
+      padding: 12px 14px;
+      text-align: left;
+      border-radius: 6px;
+
+      &:after,
+      &:before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: '';
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      &:after {
+        border-color: rgba(136, 183, 213, 0);
+        border-bottom-color: $rust;
+        border-width: 15px;
+        margin-left: -15px;
+      }
+    }
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+}

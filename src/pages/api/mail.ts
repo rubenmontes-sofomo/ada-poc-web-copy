@@ -12,15 +12,15 @@ const mailHandler = async (req: NextApiRequest, res: NextApiResponse) => {
       text: 'and easy to do anywhere, even with Node.js',
       html: '<strong>and easy to do anywhere, even with Node.js</strong>',
     }
-    sgMail
-      .send(msg)
-      .then((response: any) => {
-        console.log(response[0].statusCode)
-        console.log(response[0].headers)
-      })
-      .catch((error: any) => {
-        console.error(error)
-      })
+    // sgMail
+    //   .send(msg)
+    //   .then((response: any) => {
+    //     console.log(response[0].statusCode)
+    //     console.log(response[0].headers)
+    //   })
+    //   .catch((error: any) => {
+    //     console.error(error)
+    //   })
     res.status(200).json({ status: 'Ok' })
   } catch (error) {
     res.status(500).json({ message: error })
