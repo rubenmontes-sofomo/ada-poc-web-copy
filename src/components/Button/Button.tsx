@@ -19,6 +19,7 @@ export type ButtonProps = {
   disabled?: boolean
   overlayPrimary?: boolean
   overlaySecondary?: boolean
+  onClick: () => void
 }
 
 export default function Button({
@@ -30,6 +31,7 @@ export default function Button({
   disabled,
   overlayPrimary,
   overlaySecondary,
+  onClick,
 }: ButtonProps) {
   return (
     <button
@@ -42,6 +44,7 @@ export default function Button({
       ${overlaySecondary ? styles.overlaySecondary : ''}
       ${disabled ? styles.disabled : ''}
     `}
+      onClick={onClick}
     >
       {icon && !small && (
         <span className={styles.icon}>

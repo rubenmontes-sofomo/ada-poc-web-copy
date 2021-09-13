@@ -28,5 +28,6 @@ export const usersSlice = createSlice({
 export const { login, setEmail } = usersSlice.actions
 
 export const selectEmail = (state: RootState) => state.user.email
+export const selectLoggedIn = (state: RootState) => state.user.loggedIn
 
 export default usersSlice.reducer

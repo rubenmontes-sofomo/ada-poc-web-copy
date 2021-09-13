@@ -142,6 +142,8 @@ export default function Steps({
 
   const markAsDone = (done: boolean) => {
     if (triage) {
+      window.analytics.track('Triage visited', {})
+
       const changes = triageUpdateDone(
         triage,
         phaseFriendly,

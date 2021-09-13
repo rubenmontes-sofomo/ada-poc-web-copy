@@ -21,7 +21,8 @@ import CTAButton from '@/components/landing-page/CTAButton/CTAButton'
 import Footer from '@/components/landing-page/Footer/Footer'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
-import { login } from 'src/features/user/userSlice'
+import { login, selectEmail, selectLoggedIn } from 'src/features/user/userSlice'
+import { useAppSelector } from '@/store/hooks'
 
 type LandingPageProps = {
   values: Value[]
@@ -58,12 +59,19 @@ export default function LandingPage({
   const dispatch = useDispatch()
   const router = useRouter()
   const { loggedIn } = router.query
+  const email = useAppSelector((state) => selectEmail(state))
 
   useEffect(() => {
     if (loggedIn) {
       dispatch(login())
     }
-  })
+  }, [dispatch, loggedIn])
+
+  useEffect(() => {
+    window.analytics.identify(email, {
+      email: email,
+    })
+  }, [email])
 
   return (
     <Layout>
