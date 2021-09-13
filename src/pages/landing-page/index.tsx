@@ -1,7 +1,7 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
@@ -19,6 +19,9 @@ import OurMission, {
 } from '@/components/landing-page/OurMission/OurMission'
 import CTAButton from '@/components/landing-page/CTAButton/CTAButton'
 import Footer from '@/components/landing-page/Footer/Footer'
+import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { login } from 'src/features/user/userSlice'
 
 type LandingPageProps = {
   values: Value[]
@@ -52,10 +55,20 @@ export default function LandingPage({
   topics,
   experts,
 }: LandingPageProps) {
+  const dispatch = useDispatch()
+  const router = useRouter()
+  const { loggedIn } = router.query
+
+  useEffect(() => {
+    if (loggedIn) {
+      dispatch(login())
+    }
+  })
+
   return (
     <Layout>
       <Head>
-        <title>Landing Page</title>
+        <title>{loggedIn ? 'Logged In -' : 'Logged Out - '}Landing Page</title>
         <meta name="description" content="Landing Page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
