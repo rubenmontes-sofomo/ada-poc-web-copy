@@ -14,6 +14,10 @@ export const parameters = {
         value: '#ffffff',
       },
       {
+        name: 'yellow',
+        value: '#fdfaf2',
+      },
+      {
         name: 'green',
         value: '#196e69',
       },
