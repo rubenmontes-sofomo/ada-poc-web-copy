@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import Input from '@/components/Input/Input'
 import Button from '@/components/Button/Button'
 import LinkButton from '@/components/Link/Link'
 import Checkbox from '@/components/Checkbox/Checkbox'
-import { useAppDispatch } from '@/store/hooks'
+import { useAppDispatch, useAppSelector } from '@/store/hooks'
 
 import { setEmail } from 'src/features/user/userSlice'
 
@@ -16,10 +16,22 @@ export default function SignUp({}) {
   const router = useRouter()
   const [email, setStateEmail] = useState('')
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
     dispatch(setEmail(email))
-    router.push('/sign-up/check-email')
+
+    try {
+      const response = await fetch(`api/sign-up/${email}`)
+
+      if (response.status !== 200) {
+        throw new Error()
+      }
+      router.push('/sign-up/check-email')
+    } catch (error) {
+      // Set error
+      router.push('/sign-up/email-failed')
+    }
   }
 
   return (
