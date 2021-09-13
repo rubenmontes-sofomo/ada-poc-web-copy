@@ -1,8 +1,8 @@
 import React from 'react'
 
-import styles from './Checkbox.module.css'
+import styles from './Checkbox.module.scss'
 
-type CheckboxProps = {
+export type CheckboxProps = {
   checked?: boolean
   text?: string
 }
