@@ -5,7 +5,7 @@ import Input from '@/components/Input/Input'
 import Button from '@/components/Button/Button'
 import LinkButton from '@/components/Link/Link'
 import Checkbox from '@/components/Checkbox/Checkbox'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
+import { useAppDispatch } from '@/store/hooks'
 
 import { setEmail } from 'src/features/user/userSlice'
 
@@ -15,6 +15,7 @@ export default function SignUp({}) {
   const dispatch = useAppDispatch()
   const router = useRouter()
   const [email, setStateEmail] = useState('')
+  const [showTooltip, setShowTooltip] = useState(false)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -29,31 +30,37 @@ export default function SignUp({}) {
       }
       router.push('/sign-up/check-email')
     } catch (error) {
-      // Set error
       router.push('/sign-up/email-failed')
     }
   }
 
   return (
-    <section className={styles.signUp}>
-      <form onSubmit={handleSubmit}>
+    <section onClick={() => (showTooltip ? setShowTooltip(false) : null)}>
+      <form className={styles.signUp} onSubmit={handleSubmit}>
         <h1>Get an invite emailed to you right now!</h1>
         <div className={styles.form}>
           <Input
             label="Email address"
             big={true}
             fullWidth={true}
+            backgroundColor="yellow"
             setValue={setStateEmail}
           />
           <div className={styles.checkbox}>
             <div className={styles.check}>
               <Checkbox />
             </div>
-            <div className={styles.text}>
+            <div
+              className={styles.text}
+              onClick={() => setShowTooltip(!showTooltip)}
+            >
               I’m either the mother of a newborn, or am a third-trimester
               expecting mother.
             </div>
-            <div className={styles.tooltip}>
+            <div
+              className={styles.tooltip}
+              style={{ visibility: showTooltip ? 'visible' : 'hidden' }}
+            >
               Ada is currently tailored to the new mom experience. If this
               statement does not describe you, we’ll keep you posted when we
               expand our offering.

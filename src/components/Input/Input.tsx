@@ -9,6 +9,7 @@ export type InputProps = {
   placeholder?: string
   big?: boolean
   fullWidth?: boolean
+  backgroundColor?: 'yellow' | 'green'
   errorMessages?: string[]
   setValue: (value: string) => void
 }
@@ -20,9 +21,19 @@ export default function Input({
   placeholder,
   big = false,
   fullWidth = false,
+  backgroundColor,
   errorMessages,
   setValue,
 }: InputProps) {
+  const getBackgroundColor = () => {
+    switch (backgroundColor) {
+      case 'yellow':
+        return '#fdfaf2'
+      case 'green':
+        return '#196e69'
+    }
+    return 'white'
+  }
   const input = (
     <>
       <input
@@ -57,6 +68,7 @@ export default function Input({
             className={`${styles.label} ${
               errorMessages && !!errorMessages.length ? styles.error : ''
             }`}
+            style={{ backgroundColor: getBackgroundColor() }}
           >
             {label}
           </span>

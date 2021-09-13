@@ -7,7 +7,7 @@
   padding: 100px 25px 30px 25px;
   height: 100vh;
   h1 {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     font-weight: normal;
     text-align: center;
   }
@@ -15,12 +15,11 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    margin-top: 40px;
     .checkbox {
       position: relative;
       display: flex;
       margin-top: 20px;
-      .check {
-      }
       .text {
         text-align: center;
         line-height: 22px;
@@ -38,7 +37,7 @@
 
       &:after,
       &:before {
-        bottom: 100%;
+        bottom: 98%;
         left: 50%;
         border: solid transparent;
         content: '';
@@ -56,9 +55,21 @@
       }
     }
   }
+  .text {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
   .buttons {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+
+    .info {
+      font-style: italic;
+      line-height: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
   }
 }
