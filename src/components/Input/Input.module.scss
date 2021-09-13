@@ -12,7 +12,7 @@
   text-transform: uppercase;
   font-weight: bold;
   color: $dark-green-secondary;
-  background-color: white;
+  background-color: transparent;
 }
 .input {
   box-sizing: border-box;
@@ -33,6 +33,9 @@
     height: 72px;
     font-size: 16px;
     line-height: 22px;
+  }
+  &.fullWidth {
+    width: 100%;
   }
   &.hasErrors {
     border-color: $alert;
