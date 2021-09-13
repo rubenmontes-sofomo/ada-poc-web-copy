@@ -9,6 +9,8 @@ export type LinkProps = {
   href: string
   overlay?: boolean
   icon?: boolean
+  alternative?: boolean
+  noHorizontalPadding?: boolean
 }
 
 export default function LinkButton({
@@ -16,13 +18,18 @@ export default function LinkButton({
   href,
   overlay = true,
   icon,
+  alternative,
+  noHorizontalPadding,
 }: LinkProps) {
   return (
     <Link href={href}>
       <a
-        className={`${styles.link} ${overlay ? styles.overlay : ''} ${
-          icon ? styles.withIcon : ''
-        }`}
+        className={`
+          ${styles.link} ${overlay ? styles.overlay : ''} 
+          ${icon ? styles.withIcon : ''}
+          ${alternative ? styles.alternative : ''}
+          ${noHorizontalPadding ? styles.noHorizontalPadding : ''}
+        `}
       >
         <span className={styles.text}>{text}</span>
         {icon && (
