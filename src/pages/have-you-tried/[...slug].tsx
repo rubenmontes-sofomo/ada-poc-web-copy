@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
@@ -33,25 +33,33 @@ type StepsProps = {
 export const getStaticPaths = async () => {
   const response = await fetcher('entries/triage')
   const { data, error } = response
-  const slug = data.flatMap((triage: any) => {
-    return triage.phase.flatMap((phase: any) => {
-      return phase.Phase.modular_blocks.map((block: any) => {
-        return {
-          triage: toSEOUrl(triage.title),
-          phase: toSEOUrl(phase.Phase.phase_title),
-          step: block.step.url_friendly_step_title,
-        }
-      })
-    })
-  })
+  const slug =
+    data && !!data.length
+      ? data.flatMap((triage: any) => {
+          return triage.phase.flatMap((phase: any) => {
+            return phase.Phase.modular_blocks.map((block: any) => {
+              return {
+                triage: toSEOUrl(triage.title),
+                phase: toSEOUrl(phase.Phase.phase_title),
+                step: block.step.url_friendly_step_title,
+              }
+            })
+          })
+        })
+      : {}
 
-  const paths = slug.map(
-    (slug: { triage: string; phase: string; step: string }) => {
-      return {
-        params: { slug: [slug.triage, slug.phase, slug.step] },
-      }
-    }
-  )
+  const paths =
+    slug && !!slug.length
+      ? slug.map((slug: { triage: string; phase: string; step: string }) => {
+          return {
+            params: { slug: [slug.triage, slug.phase, slug.step] },
+          }
+        })
+      : [
+          {
+            params: { slug: ['', '', ''] },
+          },
+        ]
 
   return {
     paths,

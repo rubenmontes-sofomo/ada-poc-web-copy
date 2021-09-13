@@ -16,11 +16,14 @@ type HelloMamaProps = {
 export const getStaticPaths = async () => {
   const response = await fetcher('entries/hero')
   const { data, error } = response
-  const paths = data.map((heroEntry: any) => {
-    return {
-      params: { entry_uid: heroEntry.uid },
-    }
-  })
+  const paths =
+    data && !!data.length
+      ? data.map((heroEntry: any) => {
+          return {
+            params: { entry_uid: heroEntry.uid },
+          }
+        })
+      : [{ params: { entry_uid: '' } }]
 
   return {
     paths,
