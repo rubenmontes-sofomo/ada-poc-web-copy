@@ -9,14 +9,18 @@ export default function SignUp({}) {
   return (
     <section className={styles.signUp}>
       <h1>Are you a new or expectant mom?</h1>
-      <p style={{ textAlign: 'center' }}>
+      <p className={styles.text}>
         Ada is currently tailored to the new mom experience. If you’re the
         mother of a newborn, or a third-trimester expecting mother, you’ll get
         the most out of Ada!
       </p>
       <div className={styles.buttons}>
         <Button text="Yes, I am!" />
-        <LinkButton text="No, I'm not" href="/" alternative={true} />
+        <LinkButton
+          text="No, I'm not"
+          href="/sign-up/keep-me-posted"
+          alternative={true}
+        />
       </div>
     </section>
   )

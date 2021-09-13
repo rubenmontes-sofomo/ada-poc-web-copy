@@ -18,6 +18,7 @@ Overlay.args = {
   text: 'Already a member? Log in',
   href: '/',
   overlay: true,
+  icon: false,
 }
 Overlay.parameters = {
   backgrounds: {

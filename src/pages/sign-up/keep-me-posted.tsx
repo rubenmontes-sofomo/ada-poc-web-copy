@@ -9,7 +9,7 @@ export default function SignUp({}) {
   return (
     <section className={styles.signUp}>
       <h1>We’re working to support you, too!</h1>
-      <p style={{ textAlign: 'center' }}>
+      <p className={styles.text}>
         We’re just getting started with creating support for moms! We can let
         you know when we’ve expanded our offering.
       </p>
