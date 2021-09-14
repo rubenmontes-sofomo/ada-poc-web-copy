@@ -45,6 +45,7 @@ export default function SignUp({}) {
             fullWidth={true}
             backgroundColor="yellow"
             setValue={setStateEmail}
+            placeholder="email address"
           />
           <div className={styles.checkbox}>
             <div className={styles.check}>

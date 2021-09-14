@@ -21,7 +21,7 @@ Default.parameters = {
   design: {
     type: 'figma',
     url:
-      'https://www.figma.com/file/33BOAzBmMBipSKpp9w9CyG/The-Pattern-Library-Ada?node-id=0%3A1',
+      'https://www.figma.com/file/33BOAzBmMBipSKpp9w9CyG/The-Pattern-Library-Ada?node-id=53%3A207',
   },
 }
 

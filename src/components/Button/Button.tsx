@@ -19,7 +19,7 @@ export type ButtonProps = {
   disabled?: boolean
   overlayPrimary?: boolean
   overlaySecondary?: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
 export default function Button({
