@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getResponseContentStackCDN } from '@/utils/index'
-import { AxiosError } from 'axios'
 
 const contentTypeUIDHandler = async (
   req: NextApiRequest,

@@ -4,7 +4,12 @@
   padding: 75px 24px;
   .value {
     margin: 20px 0 40px;
-    .thumbnail {
+    .image {
+      width: 320px;
+      height: 180px;
+      background-color: $teal;
+    }
+    .placeholder {
       width: 320px;
       height: 180px;
       background-color: $teal;

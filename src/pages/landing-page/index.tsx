@@ -1,65 +1,40 @@
-import { promises as fs } from 'fs'
-import path from 'path'
-
 import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
 import { Layout } from '@/components/Layout/Layout'
 import Introduction from '@/components/landing-page/Introduction/Introduction'
-import HighlightValues, {
-  Value,
-} from '@/components/landing-page/HighlightValues/HighlightValues'
-import AdaExperience, {
-  Experience,
-} from '@/components/landing-page/AdaExperience/AdaExperience'
+import HighlightValues from '@/components/landing-page/HighlightValues/HighlightValues'
+import AdaPreview from '@/components/landing-page/AdaPreview/AdaPreview'
 import Help from '@/components/landing-page/Help/Help'
-import OurMission, {
-  Expert,
-} from '@/components/landing-page/OurMission/OurMission'
-import CTAButton from '@/components/landing-page/CTAButton/CTAButton'
+import Advisors from '@/components/landing-page/Advisors/Advisors'
 import Footer from '@/components/landing-page/Footer/Footer'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
-import { login, selectEmail, selectLoggedIn } from 'src/features/user/userSlice'
+import { login, selectEmail } from 'src/features/user/userSlice'
 import { useAppSelector } from '@/store/hooks'
+import { CSLandingPage } from '@/types'
+import { fetcher } from '@/utils/index'
 
 type LandingPageProps = {
-  values: Value[]
-  experiences: Experience[]
-  topics: string[]
-  experts: Expert[]
+  data: CSLandingPage[]
+  error: any
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const dataPath = path.join(
-    process.cwd(),
-    'src/pages/landing-page/data/data.json'
-  )
-  const { values, experiences, topics, experts } = JSON.parse(
-    await fs.readFile(dataPath, 'utf8')
-  )
-
+  const props: LandingPageProps = await fetcher('entries/landing_page_alpha_v2')
   return {
-    props: {
-      values,
-      experiences,
-      topics,
-      experts,
-    },
+    props,
   }
 }
 
-export default function LandingPage({
-  values,
-  experiences,
-  topics,
-  experts,
-}: LandingPageProps) {
+export default function LandingPage({ data, error }: LandingPageProps) {
   const dispatch = useDispatch()
   const router = useRouter()
   const { loggedIn } = router.query
   const email = useAppSelector((state) => selectEmail(state))
+  console.log(data)
+  const landingPage = data && !!data.length ? data[0] : null
 
   useEffect(() => {
     if (loggedIn) {
@@ -81,13 +56,32 @@ export default function LandingPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Introduction />
-        <HighlightValues values={values} />
-        <AdaExperience experiences={experiences} topics={topics} />
-        <Help />
-        <OurMission experts={experts} />
-        <CTAButton />
-        <Footer />
+        {landingPage && (
+          <>
+            <Introduction
+              headline={landingPage.headline}
+              hero_cta_1={landingPage.hero_cta_1}
+              hero_cta_2={landingPage.hero_cta_2}
+            />
+            <HighlightValues
+              value_props={landingPage.value_props}
+              value_props_cta={landingPage.value_props_cta}
+            />
+            <AdaPreview
+              adaPreviewHeadline={landingPage.ada_preview_headline}
+              adaPreview={landingPage.ada_preview}
+              topics={landingPage.topics}
+              topicsDescription={landingPage.topics_preview_description}
+              topicsHeadline={landingPage.topics_preview_headline}
+            />
+            <Advisors
+              advisorPreviewHeadline={landingPage.advisors_preview_headline}
+              advisors={landingPage.advisors}
+            />
+            <Help />
+            <Footer />
+          </>
+        )}
       </main>
     </Layout>
   )

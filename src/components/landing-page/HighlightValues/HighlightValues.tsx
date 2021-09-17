@@ -1,49 +1,47 @@
 import Button from '@/components/Button/Button'
+import { CTA, ValueProp } from '@/types'
 import Image from 'next/image'
 import React from 'react'
 import styles from './HighlightValues.module.scss'
 
 type HighlightValuesProps = {
-  values: Value[]
+  value_props: ValueProp[]
+  value_props_cta: CTA
 }
 
-export type Value = {
-  title: string
-  description: string
-  thumbnail?: {
-    src: string
-    width: number
-    height: number
-    alt: string
-  }
-}
-
-const Value = ({ title, description, thumbnail }: Value) => (
+const Value = ({ value }: ValueProp) => (
   <article className={styles.value}>
-    <div className={styles.thumbnail}>
-      {thumbnail && (
+    <div className={styles.image}>
+      {value && !!value.image_url ? (
         <Image
-          src={thumbnail.src}
-          width={thumbnail.width}
-          height={thumbnail.height}
-          alt={thumbnail.alt}
+          src={value.image_url}
+          width={320}
+          height={180}
+          alt={value.headline}
         />
+      ) : (
+        <div className={styles.placeholder} />
       )}
     </div>
-    <p className={styles.title}>{title}</p>
-    <p className={styles.description}>{description}</p>
+    <p className={styles.title}>{value.headline}</p>
+    <p className={styles.description}>{value.description}</p>
   </article>
 )
 
-export default function HighlightValues({ values }: HighlightValuesProps) {
+export default function HighlightValues({
+  value_props,
+  value_props_cta,
+}: HighlightValuesProps) {
   return (
     <section className={styles.highlightValues}>
       <h3>Highlight value props here.</h3>
-      {values &&
-        !!values.length &&
-        values.map((value, index) => <Value key={index} {...value} />)}
+      {value_props &&
+        !!value_props.length &&
+        value_props.map((item: ValueProp) => (
+          <Value key={item.value._metadata.uid} value={item.value} />
+        ))}
       <div className={styles.button}>
-        <Button text="Request an invite" />
+        <Button text={value_props_cta.title} />
       </div>
     </section>
   )

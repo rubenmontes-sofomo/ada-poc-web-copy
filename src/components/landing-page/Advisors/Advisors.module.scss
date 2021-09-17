@@ -1,6 +1,6 @@
 @import '../../../styles/colors';
 
-.ourMission {
+.advisors {
   padding: 75px 24px 40px;
   .placeholder {
     width: 329px;
@@ -9,33 +9,34 @@
     margin-bottom: 40px;
   }
   h3 {
-    margin-bottom: 40px;
+    margin-bottom: 70px;
   }
   hr.separator {
     margin: 50px 0;
   }
-  .expertsWrapper {
+  .advisorsWrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
-    .experts {
+    margin-bottom: 60px;
+    .advisors {
       position: relative;
       width: 254px;
       height: 241px;
       border: dotted 3px $teal-tint-3;
       border-radius: 200px;
-      .expert {
+      .advisor {
         position: absolute;
       }
     }
   }
-  .expertName {
+  .advisorName {
     font-size: 18px;
     font-weight: bold;
     line-height: 22px;
     text-align: center;
+    margin-bottom: 0px;
   }
-  .expertDescription {
+  .advisorDescription {
     font-size: 14px;
     line-height: 22px;
     text-align: center;
